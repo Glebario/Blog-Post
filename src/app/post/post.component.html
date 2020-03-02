@@ -1,1 +1,22 @@
-<p>post works!</p>
+<div class="card" (dblclick)="postFocus()" #cardFocus>
+
+  <div class="postContent">
+    <h2>{{post.title}}</h2>
+    <div>{{post.text}}</div>
+  </div>
+
+  <div class="optionBar">
+    <ul class="btnBar">
+      <li *ngIf="!activePostFocus"><button *ngIf="post.like == ''" class="btn" (click)="likePost()">Like</button></li>
+      <li *ngIf="!activePostFocus"><button *ngIf="post.like == 'active'" class="btnLike" (click)="likePost()">Like</button></li>
+      <li *ngIf="!activePostFocus"><small>Double Click On Post: Show more details</small></li>
+      <li *ngIf="activePostFocus"><button class="btn" (click)="removePost()">Delete post</button></li>
+      <li *ngIf="activePostFocus"><button class="btn" (click)="editPost()">Edit post</button><li>
+    </ul>
+    <ul class="infoOptionBar" *ngIf="activePostFocus">
+      <li>{{post.corrected}}</li>
+      <li><ng-content></ng-content></li>
+    </ul>
+  </div>
+</div>
+

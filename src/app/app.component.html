@@ -1,5 +1,55 @@
 <div class="container">
-  <h1>Angular Components</h1>
+  <h1>Blog Post</h1>
 
+  <app-post-form
+    (onAdd)="updatePosts($event)"
+    (activeFavoritePosts)="updateLikesPosts($event)"
+    [editPost]="changeEditPost"
+  ></app-post-form>
+  <hr>
+  <div *ngIf="likePosts.length === 0"><h2 *ngIf="activeLikesPost">You don't have favorite posts.</h2></div>
+  <div *ngIf="likePosts.length !== 0"><h2 *ngIf="activeLikesPost">Your favorite posts:</h2></div>
+  <div *ngIf="posts.length === 0"><h2 *ngIf="!activeLikesPost">You have no posts.</h2></div>
+  <div *ngIf="posts.length !== 0"><h2 *ngIf="!activeLikesPost">Your posts:</h2></div>
+  <ng-container [ngSwitch]="activeLikesPost">
+    <ng-container *ngSwitchCase="false">
+      <app-post
+        *ngFor="let p of posts"
+        [post]="p"
+        (onRemovePost)="removePost($event)"
+        (onEditPost)="editPost($event)"
+        (onLikePost)="likePost($event)"
+      >
+        <small *ngIf="p.text.length > 10; else short">This post long</small>
+        <ng-template #short><small>This post short</small></ng-template>
+      </app-post>
+    </ng-container>
+    <!-- ===================================================================================== -->
+    <ng-container *ngSwitchCase="true">
+      <app-post
+        *ngFor="let p of likePosts"
+        [post]="p"
+        (onRemovePost)="removePost($event)"
+        (onEditPost)="editPost($event)"
+        (onLikePost)="likePost($event)"
+      >
+        <small *ngIf="p.text.length > 10; else short">This post long</small>
+        <ng-template #short><small>This post short</small></ng-template>
+      </app-post>
+    </ng-container>
+    <!-- ===================================================================================== -->
+    <ng-container *ngSwitchDefault>
+      <app-post
+        *ngFor="let p of posts"
+        [post]="p"
+        (onRemovePost)="removePost($event)"
+        (onEditPost)="editPost($event)"
+        (onLikePost)="likePost($event)"
+      >
+        <small *ngIf="p.text.length > 10; else short">This post long</small>
+        <ng-template #short><small>This post short</small></ng-template>
+      </app-post>
+    </ng-container>
+  </ng-container>
 </div>
 

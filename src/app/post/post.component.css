@@ -1,0 +1,52 @@
+.cardFocus {
+  display: flex;
+  justify-content: space-between;
+}
+
+.infoOptionBar {
+  align-items: flex-start;
+}
+
+.infoOptionBar li {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnBar {
+  align-items: flex-start;
+}
+
+.btnBar li{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnLike {
+  height: 38px;
+  border: none;
+  background: rgba(178, 0, 13, 0.78);
+  color: #ffffff;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 500ms ease;
+  outline: none;
+}
+
+.btnLike:before {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: rgba(255,255,255,0.3);
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+
+.btnLike:hover:before {
+  height: 38px;
+}

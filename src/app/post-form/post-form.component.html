@@ -1,1 +1,18 @@
-<p>post-form works!</p>
+<input class="form-control" type="text" placeholder="Title>>>" [(ngModel)]="Title" #titleFocus>
+<input class="form-control" type="text" placeholder="Text>>>" [(ngModel)]="Text" #textFocus>
+
+<div class="btnBar">
+  <div>
+    <button class="btn" (click)="addPost()">{{addPostBtn}}</button>
+    <button class="btn" (click)="titleInputFocus()">Focus Title</button>
+    <button class="btn" (click)="textInputFocus()">Focus Text</button>
+  </div>
+
+  <div class="radio_buttons">
+    <div class="wrapper">
+      <input type="checkbox" id="checkbox" (click)="favoritePosts()" />
+      <label for="checkbox" id="checkboxLabel" #favoritePost></label>
+    </div>
+  </div>
+</div>
+

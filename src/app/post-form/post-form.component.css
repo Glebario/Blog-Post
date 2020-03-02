@@ -1,0 +1,62 @@
+.btnBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  position: absolute;
+  left: 63%;
+
+}
+
+label {
+  text-align: center;
+  display: block;
+  border-radius: 20px;
+  position: relative;
+  width: 300px;
+  height: 40px;
+  z-index: 10;
+  line-height: 40px;
+  font-weight: bold;
+  background: #303030;
+  -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -moz-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -ms-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -o-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
+}
+
+label:after {
+  content: "All posts";
+  width: 152px;
+  height: 45px;
+  position: absolute;
+  left: -2px;
+  top: 0px;
+  display: block;
+  color: #b20406;
+  background: #ff9dac;
+  -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -moz-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -ms-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  -o-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
+  border-radius: 20px 0 20px;
+  transition: all 0.5s ease;
+}
+
+#checkbox {
+  display: none;
+}
+
+:checked + label:after {
+  border-radius: 0 20px 0 20px;
+  left: 152px;
+  background: #FC6666;
+  color: #eaeaea;
+  content: "My favorite posts";
+  transition: all 0.5s ease;
+}
+
